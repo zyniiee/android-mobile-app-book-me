@@ -87,7 +87,7 @@
                         android:contentDescription="Five Stars Image"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/rating_five_stars"
+                        android:background="@drawable/four_stars"
                         android:layout_marginEnd="8dp"/>
                     <TextView
                         android:id="@+id/deals_rating"

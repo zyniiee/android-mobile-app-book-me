@@ -20,11 +20,16 @@ public class DealsAdapter extends RecyclerView.Adapter<DealsAdapter.ViewHolder> 
 
     private List<DealsModel> dealsList;
     private Context context;
-
-    public DealsAdapter(List<DealsModel> dealsList, Context context) {
+    private OnItemClickListener listener;
+    public interface OnItemClickListener {
+        void onItemClick(DealsModel dealItem);
+    }
+    public DealsAdapter(List<DealsModel> dealsList, Context context, OnItemClickListener listener) {
         this.dealsList = dealsList;
         this.context = context;
+        this.listener = listener;
     }
+
 
     @NonNull
     @Override
@@ -71,7 +76,7 @@ public class DealsAdapter extends RecyclerView.Adapter<DealsAdapter.ViewHolder> 
         return dealsList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener  {
         private ImageView imageView;
         private TextView titleTextView;
         private TextView ratingTextView;
@@ -89,6 +94,19 @@ public class DealsAdapter extends RecyclerView.Adapter<DealsAdapter.ViewHolder> 
             savesTextView = itemView.findViewById(R.id.deals_save);
             spacesTextView = itemView.findViewById(R.id.deals_space);
             priceTextView = itemView.findViewById(R.id.deals_price);
+            itemView.setOnClickListener(this);
+
+
+        }
+
+        @Override
+        public void onClick(View v) {
+            // Get clicked item position
+            int position = getAdapterPosition();
+            if (position != RecyclerView.NO_POSITION) {
+                // Invoke onItemClick method of the listener with clicked item
+                listener.onItemClick(dealsList.get(position));
+            }
         }
     }
 }
