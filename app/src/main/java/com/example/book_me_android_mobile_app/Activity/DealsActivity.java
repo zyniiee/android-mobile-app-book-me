@@ -28,7 +28,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class DealsActivity extends AppCompatActivity implements View.OnClickListener {
 
     // Button click event handler method
     public void onButtonClick(View view) {
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_deals);
 
 
         // Find all LinearLayouts corresponding to bottom navigation items
@@ -63,19 +63,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         underlineTextView1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent intent = new Intent(MainActivity.this, ViewAll.class);
+                Intent intent = new Intent(DealsActivity.this, ViewAll.class);
                 startActivity(intent);
             }
         });
         underlineTextView2.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent intent = new Intent(MainActivity.this, ViewAll.class);
+                Intent intent = new Intent(DealsActivity.this, ViewAll.class);
                 startActivity(intent);
             }
         });
         underlineTextView3.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent intent = new Intent(MainActivity.this, ViewAll.class);
+                Intent intent = new Intent(DealsActivity.this, ViewAll.class);
                 startActivity(intent);
             }
         });
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "$78",
                 "Hurry! Only 5 spaces left",
                 56,
-                R.drawable.nz6
+                R.drawable.aus11
         ));
         dealsYouMightLikeList.add(new DealsModel(
                 "Wairakei Terraces - Thermal Hot Pools",
@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "$13.5",
                 "20+ Spaces",
                 13.5,
-                R.drawable.nz12
+                R.drawable.aus10
         ));
         dealsYouMightLikeList.add(new DealsModel(
                 "Kaitiaki Adventures - Kaituna Whitewater Rafting",
@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "$78",
                 "Hurry! Only 5 spaces left",
                 79,
-                R.drawable.nz1
+                R.drawable.aus9
         ));
         dealsYouMightLikeList.add(new DealsModel(
                 "Wairakei Terraces - Thermal Hot Pools",
@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "$13.5",
                 "20+ Spaces",
                 13.5,
-                R.drawable.nz4
+                R.drawable.aus8
         ));
         dealsYouMightLikeList.add(new DealsModel(
                 "Orakei Korako - General Admission",
@@ -152,7 +152,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "$10",
                 "20+ Spaces",
                 13.5,
-                R.drawable.nz13
+                R.drawable.aus7
         ));
         dealsYouMightLikeList.add(new DealsModel(
                 "Kaitiaki Adventures - Kaituna Whitewater Rafting",
@@ -161,7 +161,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "$78",
                 "Hurry! Only 5 spaces left",
                 23,
-                R.drawable.nz7
+                R.drawable.aus6
         ));
         dealsYouMightLikeList.add(new DealsModel(
                 "Wairakei Terraces - Thermal Hot Pools",
@@ -170,7 +170,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "$13.5",
                 "20+ Spaces",
                 13.5,
-                R.drawable.nz12
+                R.drawable.aus5
         ));
         dealsYouMightLikeList.add(new DealsModel(
                 "Orakei Korako - General Admission",
@@ -179,7 +179,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "$10",
                 "20+ Spaces",
                 13.5,
-                R.drawable.nz9
+                R.drawable.aus4
         ));
         dealsYouMightLikeList.add(new DealsModel(
                 "Rapids Jet - Taupo",
@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "$56",
                 "8 Spaces",
                 42,
-                R.drawable.nz4
+                R.drawable.aus3
         ));
 
         dealsYouMightLikeList.add(new DealsModel(
@@ -198,7 +198,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "$56",
                 "8 Spaces",
                 87,
-                R.drawable.nz3
+                R.drawable.aus2
         ));
         DealsAdapter dealsAdapter = new DealsAdapter(dealsYouMightLikeList, this,this::onItemClick);
         dealsYouMightLikeRecyclerView.setAdapter(dealsAdapter);
@@ -217,7 +217,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "$78",
                 "Hurry! Only 5 spaces left",
                 123,
-                R.drawable.nz10
+                R.drawable.aus8
         ));
         dealsNearYouList.add(new DealsModel(
                 "Wairakei Terraces - Thermal Hot Pools",
@@ -226,7 +226,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "$13.5",
                 "20+ Spaces",
                 13.5,
-                R.drawable.nz11
+                R.drawable.aus9
         ));
         dealsNearYouList.add(new DealsModel(
                 "Orakei Korako - General Admission",
@@ -235,7 +235,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "$10",
                 "20+ Spaces",
                 135,
-                R.drawable.nz7
+                R.drawable.aus10
         ));
         dealsNearYouList.add(new DealsModel(
                 "Kaitiaki Adventures - Kaituna Whitewater Rafting",
@@ -244,7 +244,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "$78",
                 "Hurry! Only 5 spaces left",
                 43,
-                R.drawable.nz1
+                R.drawable.aus11
         ));
         dealsNearYouList.add(new DealsModel(
                 "Wairakei Terraces - Thermal Hot Pools",
@@ -253,7 +253,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "$13.5",
                 "20+ Spaces",
                 125,
-                R.drawable.nz2
+                R.drawable.aus5
         ));
         dealsNearYouList.add(new DealsModel(
                 "Orakei Korako - General Admission",
@@ -262,7 +262,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "$10",
                 "20+ Spaces",
                 13.5,
-                R.drawable.nz3
+                R.drawable.aus4
         ));
         dealsNearYouList.add(new DealsModel(
                 "Rapids Jet - Taupo",
@@ -271,7 +271,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "$56",
                 "8 Spaces",
                 87,
-                R.drawable.nz4
+                R.drawable.aus3
         ));
 
         dealsNearYouList.add(new DealsModel(
@@ -281,7 +281,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "$56",
                 "8 Spaces",
                 43,
-                R.drawable.nz13
+                R.drawable.aus2
         ));
 
 
@@ -306,7 +306,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "$78",
                 "Hurry! Only 5 spaces left",
                 24,
-                R.drawable.nz1
+                R.drawable.aus1
         ));
         topDealsList.add(new DealsModel(
                 "Wairakei Terraces - Thermal Hot Pools",
@@ -315,7 +315,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "$13.5",
                 "20+ Spaces",
                 143,
-                R.drawable.nz2
+                R.drawable.aus2
         ));
         topDealsList.add(new DealsModel(
                 "Orakei Korako - General Admission",
@@ -324,7 +324,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "$10",
                 "20+ Spaces",
                 152,
-                R.drawable.nz3
+                R.drawable.aus3
         ));
         topDealsList.add(new DealsModel(
                 "Rapids Jet - Taupo",
@@ -342,7 +342,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "$78",
                 "Hurry! Only 5 spaces left",
                 63,
-                R.drawable.nz5
+                R.drawable.aus4
         ));
         topDealsList.add(new DealsModel(
                 "Wairakei Terraces - Thermal Hot Pools",
@@ -351,7 +351,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "$13.5",
                 "20+ Spaces",
                 65,
-                R.drawable.nz6
+                R.drawable.aus5
         ));
         topDealsList.add(new DealsModel(
                 "Orakei Korako - General Admission",
@@ -360,7 +360,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "$10",
                 "20+ Spaces",
                 74,
-                R.drawable.nz7
+                R.drawable.aus6
         ));
         topDealsList.add(new DealsModel(
                 "Rapids Jet - Taupo",
@@ -369,7 +369,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 "$56",
                 "8 Spaces",
                 43,
-                R.drawable.nz8
+                R.drawable.aus7
         ));
 
         DealsAdapter dealsAdapter = new DealsAdapter(topDealsList, this,this::onItemClick);

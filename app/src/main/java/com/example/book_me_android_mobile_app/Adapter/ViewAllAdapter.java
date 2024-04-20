@@ -16,16 +16,15 @@ import com.example.book_me_android_mobile_app.R;
 
 import java.util.List;
 
-public class DealsAdapter extends RecyclerView.Adapter<DealsAdapter.ViewHolder> {
-
-    private List<DealsModel> dealsList;
+public class ViewAllAdapter extends RecyclerView.Adapter<ViewAllAdapter.ViewHolder> {
+    private List<DealsModel> viewAllList;
     private Context context;
-    private OnItemClickListener listener;
-    public interface OnItemClickListener {
-        void onItemClick(DealsModel dealItem);
+    private OnViewAllClickListener listener;
+    public interface OnViewAllClickListener{
+        void onViewAllItemClick(DealsModel viewAllItem);
     }
-    public DealsAdapter(List<DealsModel> dealsList, Context context, OnItemClickListener listener) {
-        this.dealsList = dealsList;
+    public ViewAllAdapter(List<DealsModel> viewAllList, Context context, OnViewAllClickListener listener){
+        this.viewAllList = viewAllList;
         this.context = context;
         this.listener = listener;
     }
@@ -33,14 +32,14 @@ public class DealsAdapter extends RecyclerView.Adapter<DealsAdapter.ViewHolder> 
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.deals_item, parent, false);
-        return new ViewHolder(view);
+    public ViewAllAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_item, parent, false);
+        return new ViewHolder(view, viewAllList, listener);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        DealsModel dealItem = dealsList.get(position);
+    public void onBindViewHolder(@NonNull ViewAllAdapter.ViewHolder holder, int position) {
+        DealsModel dealItem = viewAllList.get(position);
         double price = dealItem.getPrice();
 
         String formattedPrice;
@@ -63,6 +62,7 @@ public class DealsAdapter extends RecyclerView.Adapter<DealsAdapter.ViewHolder> 
         holder.spacesTextView.setText(dealItem.getSpaces());
         holder.priceTextView.setText(formattedPrice);
 
+        // Load image using Glide or any other image loading library
         Glide.with(context)
                 .load(dealItem.getPicResId())
                 .placeholder(R.drawable.placeholder_image)
@@ -72,10 +72,10 @@ public class DealsAdapter extends RecyclerView.Adapter<DealsAdapter.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        return dealsList.size();
+        return viewAllList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener  {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private ImageView imageView;
         private TextView titleTextView;
         private TextView ratingTextView;
@@ -84,8 +84,13 @@ public class DealsAdapter extends RecyclerView.Adapter<DealsAdapter.ViewHolder> 
         private TextView spacesTextView;
         private TextView priceTextView;
 
-        public ViewHolder(@NonNull View itemView) {
+        private OnViewAllClickListener listener;
+        private List<DealsModel> viewAllList;
+
+        public ViewHolder(@NonNull View itemView, List<DealsModel> viewAllList, OnViewAllClickListener listener) {
             super(itemView);
+            this.viewAllList = viewAllList;
+            this.listener = listener;
             imageView = itemView.findViewById(R.id.deals_image);
             titleTextView = itemView.findViewById(R.id.deals_title);
             ratingTextView = itemView.findViewById(R.id.deals_rating);
@@ -94,17 +99,16 @@ public class DealsAdapter extends RecyclerView.Adapter<DealsAdapter.ViewHolder> 
             spacesTextView = itemView.findViewById(R.id.deals_space);
             priceTextView = itemView.findViewById(R.id.deals_price);
             itemView.setOnClickListener(this);
-
         }
 
         @Override
         public void onClick(View v) {
-            // Get clicked item position
             int position = getAdapterPosition();
             if (position != RecyclerView.NO_POSITION) {
-                // Invoke onItemClick method of the listener with clicked item
-                listener.onItemClick(dealsList.get(position));
+                listener.onViewAllItemClick(viewAllList.get(position));
             }
         }
     }
+
+
 }
