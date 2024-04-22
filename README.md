@@ -1,9 +1,3 @@
 # Book Me Android Mobile App
 High-fidelity designs
-
-
-![1](https://github.com/zyniiee/book-me-android-mobile-app/assets/70428492/bc07d98b-c406-4db6-bdc0-4f57b7d277d7)
-# book-me-android-mobile-app
-# book-me-android-app
-# android-mobile-app-book-me
-# android-mobile-app-book-me
+![1](https://github.com/zyniiee/android-mobile-app-book-me/assets/70428492/c44fdf46-af12-466a-8ec2-4024fdaa6621)
