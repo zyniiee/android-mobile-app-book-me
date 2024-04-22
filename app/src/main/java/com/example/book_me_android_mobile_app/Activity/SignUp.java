@@ -6,6 +6,7 @@ import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.UnderlineSpan;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -19,7 +20,8 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.book_me_android_mobile_app.R;
 
 public class SignUp extends AppCompatActivity implements View.OnClickListener{
-
+    EditText etFullName, etPassword, etEmail;
+    boolean isALlFieldChecked = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +45,9 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
         // Apply underlining and color to each TextView
         updateUnderlinedTextView(underlineTextView1, "Log In");
         updateUnderlinedTextView(underlineTextView2, "Sign up here");
+        etFullName = findViewById(R.id.fullName);
+        etPassword = findViewById(R.id.password);
+        etEmail = findViewById(R.id.email);
     }
     @Override
     public void onClick(View view) {
@@ -80,14 +85,35 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
         }
     }
 
+    private boolean CheckAllFields(){
+        if(etFullName.length() == 0){
+            etFullName.setError("This field is required");
+            return false;
+        }
+        if(etEmail.length() == 0){
+            etEmail.setError("This field is required");
+            return false;
+        }
+        if(etPassword.length() == 0){
+            etPassword.setError("This field is required");
+            return false;
+        } else if (etPassword.length() < 8){
+            etPassword.setError("Password must be minimum 8 characters");
+            return false;
+        }
+        return true;
+    }
     public void navigateToLogIn(View view) {
         Intent intent = new Intent(this, LogIn.class);
         startActivity(intent);
     }
 
     public void navigateToProfile(View view) {
-        Intent intent = new Intent(this, ProfileUserActivity.class);
-        startActivity(intent);
+        isALlFieldChecked = CheckAllFields();
+        if(isALlFieldChecked){
+            Intent intent = new Intent(this, ProfileUserActivity.class);
+            startActivity(intent);
+        }
     }
 
     public void navigateToSupplierSignUp(View view) {

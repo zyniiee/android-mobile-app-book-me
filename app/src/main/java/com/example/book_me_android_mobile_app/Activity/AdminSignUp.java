@@ -6,6 +6,7 @@ import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.UnderlineSpan;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -19,6 +20,8 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.book_me_android_mobile_app.R;
 
 public class AdminSignUp extends AppCompatActivity implements View.OnClickListener  {
+    EditText etFullName, etPassword, etEmail;
+    boolean isALlFieldChecked = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,9 @@ public class AdminSignUp extends AppCompatActivity implements View.OnClickListen
         TextView underlineTextView1 = findViewById(R.id.underlineText1);
 
         updateUnderlinedTextView(underlineTextView1, "Log In");
+        etFullName = findViewById(R.id.fullName);
+        etPassword = findViewById(R.id.password);
+        etEmail = findViewById(R.id.email);
 
     }
     public void onClick(View view) {
@@ -60,6 +66,24 @@ public class AdminSignUp extends AppCompatActivity implements View.OnClickListen
         startActivity(intent);
     }
 
+    private boolean CheckAllFields(){
+        if(etFullName.length() == 0){
+            etFullName.setError("This field is required");
+            return false;
+        }
+        if(etEmail.length() == 0){
+            etEmail.setError("This field is required");
+            return false;
+        }
+        if(etPassword.length() == 0){
+            etPassword.setError("This field is required");
+            return false;
+        } else if (etPassword.length() < 8){
+            etPassword.setError("Password must be minimum 8 characters");
+            return false;
+        }
+        return true;
+    }
     private void updateUnderlinedTextView(TextView textView, String targetText) {
         String text = textView.getText().toString();
         SpannableString spannableString = new SpannableString(text);
@@ -84,8 +108,11 @@ public class AdminSignUp extends AppCompatActivity implements View.OnClickListen
         startActivity(intent);
     }
 
-    public void navigateToSupplierDashboard(View view) {
-        Intent intent = new Intent(this, AdminDashboard.class);
-        startActivity(intent);
+    public void navigateToAdminDashboard(View view) {
+        isALlFieldChecked = CheckAllFields();
+        if(isALlFieldChecked){
+            Intent intent = new Intent(this, AdminDashboard.class);
+            startActivity(intent);
+        }
     }
 }

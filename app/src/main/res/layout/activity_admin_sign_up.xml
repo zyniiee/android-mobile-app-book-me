@@ -48,21 +48,21 @@
                 android:layout_marginBottom="24dp">
 
                 <EditText
-                    android:id="@+id/editTextName"
+                    android:id="@+id/fullName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     style="@style/Body12"
                     android:hint="Full Name"
                     android:ems="10"
-                    android:inputType="textEmailAddress"
+                    android:inputType="text"
                     android:padding="16dp"
                     android:background="@drawable/black_border"
                     android:layout_marginBottom="16dp"
                     />
 
                 <EditText
-                    android:id="@+id/editTextTextEmailAddress"
+                    android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -75,7 +75,7 @@
                     android:layout_marginBottom="16dp"
                     />
                 <EditText
-                    android:id="@+id/editTextTextPassword"
+                    android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -100,7 +100,7 @@
                 android:layout_height="wrap_content"
                 style="@style/PrimaryButton"
                 android:text="Submit"
-                android:onClick="navigateToSupplierDashboard"
+                android:onClick="navigateToAdminDashboard"
                 android:layout_marginBottom="16dp"/>
             <LinearLayout
                 android:layout_width="match_parent"
